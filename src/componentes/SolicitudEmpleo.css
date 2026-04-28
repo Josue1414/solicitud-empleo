@@ -1,21 +1,11 @@
-/* ---------- ESTILOS EXACTOS DEL HTML ORIGINAL ---------- */
 * {
   box-sizing: border-box;
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-.contenedor-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  padding: 2rem 0;
-}
-
 .hoja-completa {
-  width: 794px;
-  max-width: 100%;
+  width: 100%; 
+  max-width: 794px;
   background: white;
   padding: 1.5cm 1.5cm;
   margin: 0 auto;
@@ -26,36 +16,39 @@ h2 {
   background: #e0e0e0;
   padding: 6px 10px;
   font-size: 1.1rem;
-  margin: 1.5em 0 0.3em;
+  margin: 0.8em 0 0.2em; 
 }
-.confidencial {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 1.2em;
-}
+
 .contenedor-tabla {
-  overflow-x: auto;
+  /* ELIMINADO overflow-x: auto; para reparar el bug de html2pdf de la hoja blanca */
+  width: 100%;
   margin-bottom: 0.5em;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1em;
-  table-layout: auto;
+  table-layout: fixed; 
 }
+
 td, th {
   border: 1px solid #444;
   padding: 6px 8px;
   vertical-align: top;
   font-size: 0.9rem;
   background: white;
+  word-wrap: break-word; 
 }
+
 th {
   background: #f5f5f5;
   text-align: left;
   font-weight: 600;
-  white-space: nowrap;
+  white-space: normal; 
+  line-height: 1.2;    
 }
+
 input, textarea {
   width: 100%;
   border: none;
@@ -65,24 +58,49 @@ input, textarea {
   padding: 4px 2px;
   resize: vertical;
   min-height: 1.6em;
+  box-sizing: border-box;
 }
+
 textarea {
   min-height: 2.8em;
+  overflow: hidden; 
 }
+
+/* ⚡ CLASES MÁGICAS: Fusión total de la celda de Funciones */
+.th-pegado {
+  border-bottom: none !important;
+  padding-bottom: 4px !important;
+}
+
+.td-pegado {
+  border-top: none !important;
+  padding: 0 !important; /* El textarea llenará todo el espacio */
+}
+
+/* Estilo para que el textarea parezca una extensión limpia del título */
+.textarea-auto.sin-borde {
+  border: none !important; 
+  padding: 8px 10px !important; 
+  background: #fafafa; /* Fondo ligerito para diferenciar donde escribir */
+}
+
 .inline-check {
   width: auto;
   margin-right: 4px;
   vertical-align: middle;
 }
+
 .check-group {
   white-space: nowrap;
   margin-right: 1.8em;
 }
+
 .sig-line {
   margin-top: 2.5em;
   display: flex;
   justify-content: space-between;
 }
+
 .sig-line div {
   width: 45%;
   border-top: 1px solid black;
@@ -90,16 +108,19 @@ textarea {
   text-align: center;
   font-size: 0.9rem;
 }
+
 .nota {
   font-size: 0.82em;
   color: #555;
   margin-top: 1.5em;
   text-align: justify;
 }
+
 .botonera {
   text-align: center;
   margin: 1.8em 0;
 }
+
 .botonera button, .agregar-btn {
   background: #2c3e50;
   color: white;
@@ -110,12 +131,14 @@ textarea {
   cursor: pointer;
   margin: 0 6px;
 }
+
 .agregar-btn {
   background: #3a6b4c;
   padding: 6px 14px;
   font-size: 0.85rem;
   margin: 8px 0 0 0;
 }
+
 .remover-btn {
   background: transparent;
   color: #c0392b;
@@ -125,32 +148,29 @@ textarea {
   padding: 0 6px;
   font-weight: bold;
 }
-/* Anchos corregidos para campos */
+
 .td-fecha-label { width: 12%; }
-.td-fecha-input { width: 38%; }
-.td-puesto-label { width: 15%; }
+.td-fecha-input { width: 35%; }  
+.td-puesto-label { width: 18%; } 
 .td-puesto-input { width: 35%; }
 .td-tel-label { width: 10%; }
 .td-tel-input { width: 25%; }
 .td-email-label { width: 15%; }
 .td-email-input { width: 50%; }
 
-/* ⚡ Reglas para evitar cortes en filas de tabla (siempre activas) */
-tr {
-  page-break-inside: avoid;
-  break-inside: avoid;      /* Propiedad moderna equivalente */
-}
-table {
-  page-break-inside: auto;
+/* REGLA PARA BLOQUES INDIVISIBLES */
+.evitar-corte {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
 }
 
-/* 📱 Responsivo para celulares */
+/* 📱 Responsivo para celulares: Reincorporamos el scroll de tablas SOLO para pantallas móviles */
 @media (max-width: 600px) {
-  .contenedor-app {
-    padding: 1rem 0;
-  }
   .hoja-completa {
     padding: 0.5cm;
+  }
+  .contenedor-tabla {
+    overflow-x: auto; /* Aquí sí es seguro ponerlo */
   }
   h1 {
     font-size: 1.5rem;
@@ -172,7 +192,6 @@ table {
   }
 }
 
-/* Ocultar botones en impresión real (por si acaso) */
 @media print {
   .no-pdf {
     display: none !important;
