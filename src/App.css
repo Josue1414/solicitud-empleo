@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos Globales */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.min-height-screen {
+  min-height: 100vh;
+}
+
 /* Seguridad de Impresión: Ocultar el formulario por defecto si intentan imprimir (Ctrl+P) */
 @media print {
   body:not(.pago-aprobado) .print-reset {
@@ -9,10 +19,11 @@
   }
   
   /* Ocultar botones de la interfaz al imprimir */
-  .print-hidden {
+  .no-print {
     display: none !important;
   }
 
+  /* Asegurar que la hoja ocupe todo el ancho disponible al imprimir */
   .print-reset {
     box-shadow: none !important;
     margin: 0 !important;
@@ -21,7 +32,14 @@
     width: 100% !important;
   }
   
+  /* Configuración de página A4 para impresión real */
   @page {
-      margin: 0.8cm;
+    size: A4;
+    margin: 1cm;
   }
+}
+
+/* Clases de utilidad para layout */
+.flex-grow {
+  flex-grow: 1;
 }

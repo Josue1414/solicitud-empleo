@@ -1,0 +1,74 @@
+:root {
+  --banner-color: #b35a3e;
+  --bg-form: #fffef2;
+  --borde: #9e8b7a;
+  --texto: #4a3b2c;
+  --gris-claro: #f2f2f2;
+  --bg-gris-azul: #cbd5e1;
+  --borde-color: #64748b;
+  --texto-color: #1e293b;
+}
+
+/* === DISEÑO DE HOJA CORTA === */
+.hoja {
+  background-color: white;
+  width: 850px;
+  padding: 30px 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border: 1px solid #e2e8f0;
+  margin: 0 auto;
+}
+.hoja table { width: 100%; border-collapse: collapse; margin-bottom: 12px; table-layout: fixed; }
+.hoja td, .hoja th { border: 1px solid var(--borde-color); padding: 6px 8px; font-size: 13px; height: 32px; }
+.hoja .etiqueta { background-color: var(--bg-gris-azul); text-align: left; font-weight: 500; white-space: nowrap; }
+.hoja .titulo-seccion { background-color: transparent; text-align: center; font-weight: bold; font-size: 15px; padding: 8px; border: none; }
+.hoja input[type="text"], .hoja input[type="email"], .hoja textarea { width: 100%; border: none; outline: none; background: transparent; font-size: 13px; padding: 0; }
+.col-fecha { width: 18%; } .col-fecha-val { width: 32%; } .col-puesto { width: 18%; } .col-puesto-val { width: 32%; }
+.col-exp-empresa { width: 22%; } .col-exp-puesto { width: 18%; } .col-exp-periodo { width: 15%; } .col-exp-funciones { width: 45%; }
+
+/* === DISEÑO DE HOJA COMPLETA === */
+.formato-completo { display: flex; flex-direction: column; align-items: center; }
+.pagina {
+  background: var(--bg-form);
+  width: 210mm;
+  height: 297mm;
+  padding: 10mm 12mm;
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1px solid #aaa;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.pagina input[type="text"] {
+  width: 100% !important;
+  display: block;
+  padding: 0;
+  margin: 0;
+  line-height: 1.2;
+  font-size: 11px;
+}
+.pagina td { padding: 4px; border: 1px solid var(--borde); font-size: 11px; vertical-align: top; }
+
+.identificador-pagina { position: absolute; top: 5mm; right: 10mm; font-weight: bold; font-size: 11px; color: #888; }
+.header-grid { display: grid; grid-template-columns: 1fr 200px 120px; gap: 10px; margin-bottom: 5px; }
+.pill-title { background: var(--banner-color); color: white; padding: 10px 25px; font-style: italic; font-size: 24px; border-radius: 0 25px 25px 0; display: inline-block; }
+.tabla-sueldos td { border: 1px solid var(--borde); font-size: 10px; padding: 3px; height: 28px; }
+.td-label { background: var(--gris-claro); font-weight: bold; }
+.cuadro-foto { border: 1px solid var(--borde); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 9px; background: white; height: 130px; }
+.banner-seccion { background: var(--banner-color); color: white; text-align: center; font-weight: bold; font-size: 11px; padding: 4px; margin: 8px 0 2px 0; text-transform: uppercase; }
+.tabla-datos { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.label-pequeno { font-size: 9px; display: block; font-weight: bold; margin-bottom: 1px; }
+
+/* === COMUNES === */
+.header { text-align: center; margin-bottom: 25px; }
+.header h1 { margin: 0; font-size: 22px; text-decoration: underline; letter-spacing: 1px; color: #1e293b; }
+.header p { margin: 5px 0 0 0; font-style: italic; font-size: 13px; color: #475569; }
+.input-experiencia { height: 75px; resize: none; display: block; width: 100%; border: none; background: transparent; outline: none; }
+.opcion-check { display: inline-flex; align-items: center; margin-right: 10px; cursor: pointer; font-size: 13px; }
+
+.firma-container, .firma-box { margin-top: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+#canvas-firma { border-bottom: 2px solid black; cursor: crosshair; background-color: #fafafa; width: 100%; max-width: 400px; height: 100px; touch-action: none; display: block; margin: 0 auto; }
+.nota-final { font-size: 11px; text-align: justify; margin-top: 15px; line-height: 1.3; color: #64748b; }
+
+@media (max-width: 850px) { .hoja, .pagina { width: 95vw; padding: 15px; height: auto; min-height: 100vh; } }
