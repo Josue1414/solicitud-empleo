@@ -1,0 +1,180 @@
+/* ---------- ESTILOS EXACTOS DEL HTML ORIGINAL ---------- */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.contenedor-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.hoja-completa {
+  width: 794px;
+  max-width: 100%;
+  background: white;
+  padding: 1.5cm 1.5cm;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+  background: #e0e0e0;
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  margin: 1.5em 0 0.3em;
+}
+.confidencial {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1.2em;
+}
+.contenedor-tabla {
+  overflow-x: auto;
+  margin-bottom: 0.5em;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  table-layout: auto;
+}
+td, th {
+  border: 1px solid #444;
+  padding: 6px 8px;
+  vertical-align: top;
+  font-size: 0.9rem;
+  background: white;
+}
+th {
+  background: #f5f5f5;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+input, textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px dashed #aaa;
+  font-size: 0.9rem;
+  background: transparent;
+  padding: 4px 2px;
+  resize: vertical;
+  min-height: 1.6em;
+}
+textarea {
+  min-height: 2.8em;
+}
+.inline-check {
+  width: auto;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+.check-group {
+  white-space: nowrap;
+  margin-right: 1.8em;
+}
+.sig-line {
+  margin-top: 2.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.sig-line div {
+  width: 45%;
+  border-top: 1px solid black;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.nota {
+  font-size: 0.82em;
+  color: #555;
+  margin-top: 1.5em;
+  text-align: justify;
+}
+.botonera {
+  text-align: center;
+  margin: 1.8em 0;
+}
+.botonera button, .agregar-btn {
+  background: #2c3e50;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 6px;
+}
+.agregar-btn {
+  background: #3a6b4c;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  margin: 8px 0 0 0;
+}
+.remover-btn {
+  background: transparent;
+  color: #c0392b;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 6px;
+  font-weight: bold;
+}
+/* Anchos corregidos para campos */
+.td-fecha-label { width: 12%; }
+.td-fecha-input { width: 38%; }
+.td-puesto-label { width: 15%; }
+.td-puesto-input { width: 35%; }
+.td-tel-label { width: 10%; }
+.td-tel-input { width: 25%; }
+.td-email-label { width: 15%; }
+.td-email-input { width: 50%; }
+
+/* ⚡ Reglas para evitar cortes en filas de tabla (siempre activas) */
+tr {
+  page-break-inside: avoid;
+  break-inside: avoid;      /* Propiedad moderna equivalente */
+}
+table {
+  page-break-inside: auto;
+}
+
+/* 📱 Responsivo para celulares */
+@media (max-width: 600px) {
+  .contenedor-app {
+    padding: 1rem 0;
+  }
+  .hoja-completa {
+    padding: 0.5cm;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  td, th {
+    padding: 4px 4px;
+    font-size: 0.8rem;
+  }
+  .check-group {
+    display: inline-block;
+    margin-right: 0.8em;
+  }
+  .sig-line {
+    flex-direction: column;
+    gap: 1em;
+  }
+  .sig-line div {
+    width: 100%;
+  }
+}
+
+/* Ocultar botones en impresión real (por si acaso) */
+@media print {
+  .no-pdf {
+    display: none !important;
+  }
+}
